@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="/static/styles.css">
+{% extends 'base.html' %}
+{% block title %}Application Form!{% endblock %}
+{% block content %}
+
+    <h1>Job Application Form</h1>
+    <p>Please enter the following information to start your application.</p>
+    <form action="/application-success" method="POST"> 
+        First Name: <input type="text" name="first_name" class="input_box" required>
+        <br><br>
+        Last Name: <input type="text" name="last_name" class="input_box" 
+                    id="last_name" required>
+        <br><br>        
+        Salary Requirement (in USD): <input type="number" name="salary_req"
+                                      class="input_box" required>
+        <br><br>
+        Job Applying For:
+            <select name="job_title" class="input_box" required>
+                <option value= "" disabled selected>Choose One</option>
+                {% for job in jobs %}
+                <option value="{{ job }}">{{ job }}</option>
+                {% endfor %}
+            </select>
+        <br><br>
+        <input type="submit" class="input_box">
+    </form>    
+
+{% endblock %}

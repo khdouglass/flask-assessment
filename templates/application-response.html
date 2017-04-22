@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block title %}Application Response!{% endblock %}
+{% block content %}
+
+<h3> Hi {{ first_name }} {{ last_name }}, thank you for applying to be a {{ job_title }}.
+    Your minimum salary requirement is {{ "${:,}".format(salary_req) }}. </h3>
+
+{% endblock %}
